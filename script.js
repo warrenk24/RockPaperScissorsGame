@@ -1,6 +1,5 @@
 let playerCount = 0;
-let compCount = 0
-
+let compCount = 0;
 // This function will randomly choose rock, paper, or scissors
 const getComputerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
@@ -8,8 +7,9 @@ const getComputerChoice = () => {
 }
 
 
-const playRound = (player, compChoice) => {
-    let playerChoice = player.toLowerCase();
+const playRound = (playerChoice, compChoice) => {
+    
+
     //Draw
     if (playerChoice === compChoice) {
         return 'This game was a draw'
@@ -39,24 +39,55 @@ const playRound = (player, compChoice) => {
         compCount++;
         return 'You Lose! Scissors beats Paper'
     }
-   
+ 
+    
 }
+
+const rockButton = document.querySelector('#rock[data-choice]')
+rockButton.addEventListener('click', e => {
+    const choiceName = rockButton.dataset.choice
+    console.log(playRound(choiceName, getComputerChoice()))
+})
+
+const paperButton = document.querySelector('#paper[data-choice]')
+paperButton.addEventListener('click', e => {
+    const choiceName = paperButton.dataset.choice
+    console.log(playRound(choiceName, getComputerChoice()))
+})
+const scissorButton = document.querySelector('#scissor[data-choice]')
+scissorButton.addEventListener('click', e => {
+    const choiceName = scissorButton.dataset.choice
+    console.log(playRound(choiceName, getComputerChoice()))
+})
+
+// const buttons = document.querySelectorAll('[data-choice]')
+
+// buttons.forEach(button => {
+//     button.addEventListener('click', e => {
+//        const choiceName = button.dataset.choice
+//        console.log(playRound(choiceName, getComputerChoice()))
+       
+//     })
+// })
+
+
+
 //Will play five games total and pick the winner
-const game = () => {
+// const game = () => {
 
-for (let i = 0; i < 5; i++){
-    console.log(playRound('rock', getComputerChoice()))    
-}
+// for (let i = 0; i < 5; i++){
+       
+// }
 
-if (playerCount === compCount){
-    return 'Draw!'
-}else if (playerCount > compCount){
-    return 'You Won the game!'
-}else {
-    return 'You Lost the game!'
-}
+// if (playerCount === compCount){
+//     return 'Draw!'
+// }else if (playerCount > compCount){
+//     return 'You Won the game!'
+// }else {
+//     return 'You Lost the game!'
+// }
 
-}
+// }
 
-console.log(game())
+
 
