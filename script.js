@@ -1,5 +1,36 @@
 let playerCount = 0;
 let compCount = 0;
+
+
+const rockButton = document.querySelector('#rock[data-choice]')
+rockButton.addEventListener('click', e => {
+    const choiceName = rockButton.dataset.choice
+    console.log(playRound(choiceName, getComputerChoice()))
+    if (playerCount === 5 || compCount === 5){
+        declareWinner();
+    }
+})
+
+const paperButton = document.querySelector('#paper[data-choice]')
+paperButton.addEventListener('click', e => {
+    const choiceName = paperButton.dataset.choice
+    console.log(playRound(choiceName, getComputerChoice()))
+    if (playerCount === 5 || compCount === 5){
+        declareWinner();
+    }
+})
+const scissorButton = document.querySelector('#scissor[data-choice]')
+scissorButton.addEventListener('click', e => {
+    const choiceName = scissorButton.dataset.choice
+    console.log(playRound(choiceName, getComputerChoice()))
+    if (playerCount === 5 || compCount === 5){
+        declareWinner();
+    }
+})
+
+
+
+
 // This function will randomly choose rock, paper, or scissors
 const getComputerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
@@ -9,7 +40,6 @@ const getComputerChoice = () => {
 
 const playRound = (playerChoice, compChoice) => {
     
-
     //Draw
     if (playerChoice === compChoice) {
         return 'This game was a draw'
@@ -43,23 +73,16 @@ const playRound = (playerChoice, compChoice) => {
     
 }
 
-const rockButton = document.querySelector('#rock[data-choice]')
-rockButton.addEventListener('click', e => {
-    const choiceName = rockButton.dataset.choice
-    console.log(playRound(choiceName, getComputerChoice()))
-})
 
-const paperButton = document.querySelector('#paper[data-choice]')
-paperButton.addEventListener('click', e => {
-    const choiceName = paperButton.dataset.choice
-    console.log(playRound(choiceName, getComputerChoice()))
-})
-const scissorButton = document.querySelector('#scissor[data-choice]')
-scissorButton.addEventListener('click', e => {
-    const choiceName = scissorButton.dataset.choice
-    console.log(playRound(choiceName, getComputerChoice()))
-})
 
+
+const declareWinner = () => {
+    if(playerCount > compCount){
+        console.log('YOU WIN')
+    }else{
+        console.log('YOU LOSE')
+    }
+}
 // const buttons = document.querySelectorAll('[data-choice]')
 
 // buttons.forEach(button => {
