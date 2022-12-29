@@ -43,7 +43,7 @@ const playRound = (playerChoice, compChoice) => {
     
     //Draw
     if (playerChoice === compChoice) {
-        return  displayResults('This game was a draw')
+        return  displayResults('This game was a draw!')
         
     }
 
@@ -104,11 +104,11 @@ const keepCompScore = () => {
 const declareWinner = () => {
     if(playerCount > compCount){
         reset()
-        displayResults('YOU WIN')
+        displayResults('Nice work! You beat Master Jiraiya')
         
     }else{
         reset()
-        displayResults('YOU LOSE')
+        displayResults('Better luck next time kid!')
         
     }
 }
@@ -119,35 +119,6 @@ const reset = () => {
     keepCompScore()
     keepPlayerScore()
 }
-
-// const buttons = document.querySelectorAll('[data-choice]')
-
-// buttons.forEach(button => {
-//     button.addEventListener('click', e => {
-//        const choiceName = button.dataset.choice
-//        console.log(playRound(choiceName, getComputerChoice()))
-       
-//     })
-// })
-
-
-
-//Will play five games total and pick the winner
-// const game = () => {
-
-// for (let i = 0; i < 5; i++){
-       
-// }
-
-// if (playerCount === compCount){
-//     return 'Draw!'
-// }else if (playerCount > compCount){
-//     return 'You Won the game!'
-// }else {
-//     return 'You Lost the game!'
-// }
-
-// }
 
 
 

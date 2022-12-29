@@ -5,26 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Jiraiya's Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="background-container">
+        <video id="background" muted autoplay loop >
+            <source src="jiraiya.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div class="main">
-        <h1>Welcome to rock paper scissor</h1>
+        <h1>Welcome to Jiraiya's Rock Paper Scissor</h1>
         <div class="container">
             
-            <button id="rock" data-choice="rock">rock</button>
-            <button id="paper" data-choice="paper">paper</button>
-            <button id="scissor" data-choice="scissors">scissors</button>
+            <button id="rock" data-choice="rock">👊</button>
+            <button id="paper" data-choice="paper">🤚</button>
+            <button id="scissor" data-choice="scissors">✌️</button>
         </div>
         <div class="score">
             <div>
-                <p>user score</p>
+                <p>Your Score:</p>
                 <p id="playerScore"></p>
 
             </div>
             <div>
-                <p>comp score</p>
+                <p>Computer Score:</p>
                 <p id="compScore"></p>
             </div>
             
@@ -33,10 +38,6 @@
                 
     </div>
 
-
-
-
-
-    <script src="script.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>
