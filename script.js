@@ -1,8 +1,10 @@
 let playerCount = 0;
 let compCount = 0;
-
-
+let container = document.querySelector('#result-container')
 const rockButton = document.querySelector('#rock[data-choice]')
+const paperButton = document.querySelector('#paper[data-choice]')
+const scissorButton = document.querySelector('#scissor[data-choice]')
+
 rockButton.addEventListener('click', e => {
     const choiceName = rockButton.dataset.choice
     console.log(playRound(choiceName, getComputerChoice()))
@@ -11,7 +13,6 @@ rockButton.addEventListener('click', e => {
     }
 })
 
-const paperButton = document.querySelector('#paper[data-choice]')
 paperButton.addEventListener('click', e => {
     const choiceName = paperButton.dataset.choice
     console.log(playRound(choiceName, getComputerChoice()))
@@ -19,7 +20,7 @@ paperButton.addEventListener('click', e => {
         declareWinner();
     }
 })
-const scissorButton = document.querySelector('#scissor[data-choice]')
+
 scissorButton.addEventListener('click', e => {
     const choiceName = scissorButton.dataset.choice
     console.log(playRound(choiceName, getComputerChoice()))
@@ -42,47 +43,83 @@ const playRound = (playerChoice, compChoice) => {
     
     //Draw
     if (playerChoice === compChoice) {
-        return 'This game was a draw'
+        return  displayResults('This game was a draw')
+        
     }
 
     //playerChoice = scissors
     if (playerChoice === 'scissors' && compChoice === 'paper') {
         playerCount++;
-        return 'You Win! Scissors beats Paper'
+        keepPlayerScore()
+        return displayResults('You Win! Scissors beats Paper')
+        
     }else if (playerChoice === 'scissors' && compChoice === 'rock'){
         compCount++;
-        return 'You Lose! Rock beats Scissors'
+        keepCompScore()
+        return displayResults('You Lose! Rock beats Scissors')
+        
     }
     //playerChoice = rock
     if (playerChoice === 'rock' && compChoice === 'scissors') {
         playerCount++;
-        return 'You Win! Rock beats Scissors'
+        keepPlayerScore()
+        return displayResults('You Win! Rock beats Scissors')
+        
     }else if (playerChoice === 'rock' && compChoice === 'paper'){
         compCount++;
-        return 'You Lose! Paper beats Rock'
+        keepCompScore()
+        return displayResults('You Lose! Paper beats Rock')
+        
     }
     //playerChoice = paper
     if (playerChoice === 'paper' && compChoice === 'rock') {
         playerCount++;
-        return 'You Win! Paper beats Rock'
+        keepPlayerScore()
+        return displayResults('You Win! Paper beats Rock')
+        
     }else if (playerChoice === 'paper' && compChoice === 'scissors'){
         compCount++;
-        return 'You Lose! Scissors beats Paper'
+        keepCompScore()
+        return displayResults('You Lose! Scissors beats Paper')
+        
     }
  
     
 }
+const displayResults = (str) => {
+    return container.textContent = str
+}
 
+const keepPlayerScore = () => {
+    let playerScore = document.querySelector('#playerScore')
+    playerScore.textContent = playerCount
+}
 
-
+const keepCompScore = () => {
+    let compScore = document.querySelector('#compScore')
+    compScore.textContent = compCount
+    
+}
 
 const declareWinner = () => {
     if(playerCount > compCount){
-        console.log('YOU WIN')
+        reset()
+        displayResults('YOU WIN')
+        
     }else{
-        console.log('YOU LOSE')
+        reset()
+        displayResults('YOU LOSE')
+        
     }
 }
+const reset = () => {
+    container.textContent = ""
+    playerCount = 0;
+    compCount = 0;
+    keepCompScore()
+    keepPlayerScore()
+}
+
 // const buttons = document.querySelectorAll('[data-choice]')
 
 // buttons.forEach(button => {

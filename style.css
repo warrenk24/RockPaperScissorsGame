@@ -31,3 +31,8 @@ body{
 button {
     font-size: 50px;
 }
+
+#result-container {
+    padding: 50px;
+    color: red;
+}
